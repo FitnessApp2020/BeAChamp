@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.fitnessapp2020.beachamp.R
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -11,9 +12,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         // Add choose sport button
-        button1_1.setOnClickListener(this)
-        // Der er sket et problem her fordi jeg ændrede knappens navn
-        // Jeg prøver at ændre den tilbage men bedst du kigger på den
+        choose_sport_main_button.setOnClickListener(this)
 
     }
 
