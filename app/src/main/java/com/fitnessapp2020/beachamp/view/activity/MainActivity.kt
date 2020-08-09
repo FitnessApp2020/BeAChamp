@@ -1,5 +1,6 @@
 package com.fitnessapp2020.beachamp.view.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,6 +18,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(p0: View?) {
-
+        val intent = Intent(this, ChooseSportActivity::class.java)
+        startActivity(intent)
     }
 }
