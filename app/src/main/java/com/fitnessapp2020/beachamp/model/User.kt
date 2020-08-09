@@ -1,8 +1,5 @@
 package com.fitnessapp2020.beachamp.model
 
-import android.provider.ContactsContract
-import com.fitnessapp2020.beachamp.observerPattern.Subject
-
 object User : Person() {
     
     init {
@@ -33,6 +30,7 @@ object User : Person() {
         if (sportGoals.size < 5) {
             sportGoals.add(sportGoal)
         }
+        notifyChange()
     }
 
     fun removeSportGoal(sportGoal: SportGoal) {
