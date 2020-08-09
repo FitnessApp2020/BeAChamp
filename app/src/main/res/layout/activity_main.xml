@@ -4,24 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E8E3E3"
+    android:backgroundTint="#FFFFFF"
     tools:context=".view.activity.MainActivity">
 
     <TextView
         android:id="@+id/textView_title_main"
-        android:layout_width="305dp"
-        android:layout_height="468dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="304dp"
+        android:layout_height="500dp"
+        android:accessibilityLiveRegion="none"
+        android:backgroundTint="#3A1414"
+        android:fontFamily="@font/bungee_inline"
         android:text="DO YOU HAVE WHAT IT TAKES TO BE A CHAMP?"
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#9C1F1F"
         android:textSize="56sp"
         android:textStyle="bold"
+        android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -29,10 +34,11 @@
         android:layout_width="230dp"
         android:layout_height="45dp"
         android:layout_marginBottom="25dp"
+        android:background="#9C9C1F1F"
         android:text="CHOOSE YOUR SPORT"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_title_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
