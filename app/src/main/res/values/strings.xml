@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Be A Champ</string>
+
+    <string-array name="sports">
+        <item>Football</item>
+        <item>Handball</item>
+        <item>Boxing</item>
+        <item>Body Building</item>
+        <item>Exerciser</item>
+    </string-array>
 </resources>

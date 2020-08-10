@@ -3,25 +3,26 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/choose_sport_main_button2"
+        android:id="@+id/continue_button_choose"
         android:layout_width="230dp"
         android:layout_height="45dp"
         android:layout_marginBottom="25dp"
         android:background="#F381A1C8"
-        android:text="CHOOSE YOUR SPORT"
+        android:text="CONTINUE"
         android:textColor="#F8F5F5"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_title_main2"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_title_choose"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView_title_main2"
+        android:id="@+id/textView_title_choose"
         android:layout_width="304dp"
         android:layout_height="500dp"
         android:accessibilityLiveRegion="none"
@@ -43,4 +44,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.497" />
+
+    <Spinner
+        android:id="@+id/spinner_choose_sport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="SPORTS"
+        app:layout_constraintBottom_toTopOf="@id/continue_button_choose"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
