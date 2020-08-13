@@ -1,7 +1,8 @@
 package com.fitnessapp2020.beachamp.model
 
-class Sport {
+class Sport(var sportType: String) {
 
-    lateinit var sportType: String
-
+    override fun toString(): String {
+        return sportType
+    }
 }

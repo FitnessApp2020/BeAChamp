@@ -8,5 +8,4 @@ open class Person : Subject() {
     var friends = mutableListOf<Friend>()
     var sportGoals = mutableListOf<SportGoal>()
 
-
 }

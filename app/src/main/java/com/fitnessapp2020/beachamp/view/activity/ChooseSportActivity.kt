@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.fitnessapp2020.beachamp.R
+import com.fitnessapp2020.beachamp.model.Sport
 import kotlinx.android.synthetic.main.choose_your_sport.*
 
 class ChooseSportActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, View.OnClickListener {
@@ -19,7 +20,20 @@ class ChooseSportActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         // add continue button
         continue_button_choose.setOnClickListener(this)
 
-        val adapter: ArrayAdapter<CharSequence> = ArrayAdapter.createFromResource(this, R.array.sports , android.R.layout.simple_spinner_item)
+        var sports = mutableListOf<Sport>()
+        val soccer = Sport("soccer")
+        val handball = Sport("handball")
+        val boxing = Sport("boxing")
+        val bodybuilding = Sport("bodybuilding")
+        val exerciser = Sport("exerciser")
+
+        sports.add(soccer)
+        sports.add(handball)
+        sports.add(boxing)
+        sports.add(bodybuilding)
+        sports.add(exerciser)
+
+        val adapter: ArrayAdapter<Sport> = ArrayAdapter(this, android.R.layout.simple_spinner_item, sports)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner_choose_sport.adapter = adapter
         spinner_choose_sport.onItemSelectedListener = this
