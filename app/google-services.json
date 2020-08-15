@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "302490724939",
+    "firebase_url": "https://become-a-champ.firebaseio.com",
+    "project_id": "become-a-champ",
+    "storage_bucket": "become-a-champ.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:302490724939:android:856ab309014c2560b0bbce",
+        "android_client_info": {
+          "package_name": "com.fitnessapp2020.beachamp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "302490724939-v588h9bu0ukf3b9mbv5fks5lee5toihl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQLgOvkk3Hrk_AgBM0qvpNMS-Y2GupKGc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "302490724939-v588h9bu0ukf3b9mbv5fks5lee5toihl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
