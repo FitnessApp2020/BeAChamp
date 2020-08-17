@@ -12,6 +12,8 @@
 
         <activity android:name=".view.activity.ChooseSportActivity" />
         <activity android:name=".view.activity.PlayerInfoActivity" />
+        <activity android:name=".view.activity.ChooseAreaActivity" />
+
 
         <activity android:name=".view.activity.MainActivity">
             <intent-filter>
