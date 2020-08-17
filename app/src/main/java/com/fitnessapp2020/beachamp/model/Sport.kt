@@ -13,6 +13,10 @@ class Soccer : ISport {
     override fun hasShootingExercises(): Boolean {
         return true
     }
+
+    override fun toString(): String {
+        return "Soccer"
+    }
 }
 
 class HandBall : ISport {
@@ -24,10 +28,26 @@ class HandBall : ISport {
     override fun hasThrowingExercises(): Boolean {
         return true
     }
+
+    override fun toString(): String {
+        return "Handball"
+    }
 }
 
-class Boxing : ISport {}
+class Boxing : ISport {
+    override fun toString(): String {
+        return "Boxing"
+    }
+}
 
-class Bodybuilding : ISport {}
+class Bodybuilding : ISport {
+    override fun toString(): String {
+        return "Bodybuilding"
+    }
+}
 
-class Exerciser : ISport {}
+class Exerciser : ISport {
+    override fun toString(): String {
+        return "Exerciser"
+    }
+}

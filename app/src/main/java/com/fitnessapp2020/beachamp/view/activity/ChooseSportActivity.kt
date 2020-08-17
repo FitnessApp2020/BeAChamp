@@ -19,6 +19,7 @@ class ChooseSportActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
         // add continue button
         continue_button_choose.setOnClickListener(this)
 
+        // add sport classes to the spinner
         var sports = mutableListOf<ISport>()
         val soccer = Soccer()
         val handball = HandBall()
