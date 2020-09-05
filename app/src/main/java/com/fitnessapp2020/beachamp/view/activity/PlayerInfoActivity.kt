@@ -6,9 +6,12 @@ import android.view.View
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.fitnessapp2020.beachamp.R
+import com.fitnessapp2020.beachamp.model.Athlete
 import kotlinx.android.synthetic.main.player_info.*
 
 class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
+
+    var athlete = Athlete
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,6 +19,7 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
 
         // Add continue button
         choose_sport_main_button3.setOnClickListener(this)
+
     }
 
     override fun onClick(p0: View?) {

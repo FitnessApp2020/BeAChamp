@@ -1,10 +1,20 @@
 package com.fitnessapp2020.beachamp.model
 
-object User : Person() {
+object Athlete : Person() {
+
+    private lateinit var sport: Sport
     
     init {
         var name: String
         var age: Int
+    }
+
+    fun setSport(sport: Sport) {
+        this.sport = sport
+    }
+
+    fun getSport(): String {
+        return sport.sport
     }
 
     fun addFriend(friend: Friend) {
@@ -37,7 +47,7 @@ object User : Person() {
         sportGoals.remove(sportGoal)
     }
 
-    operator fun invoke(): User {
+    operator fun invoke(): Athlete {
         return this
     }
 }
