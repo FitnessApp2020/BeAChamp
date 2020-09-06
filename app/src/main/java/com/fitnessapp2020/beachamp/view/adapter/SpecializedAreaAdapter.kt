@@ -3,23 +3,23 @@ package com.fitnessapp2020.beachamp.view.adapter
 import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fitnessapp2020.beachamp.R
 import com.fitnessapp2020.beachamp.model.Athlete
-import com.fitnessapp2020.beachamp.model.Sport
-import com.fitnessapp2020.beachamp.view.activity.ChooseSportActivity
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.specialezed_area_row.view.*
 
-class SpecializedAreaAdapter: RecyclerView.Adapter<SportCustomViewHolder>() {
+class SpecializedAreaAdapter(private val listener: (Int) -> Unit) : RecyclerView.Adapter<SportCustomViewHolder>() {
 
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
-    val specialAreasSoccer = mutableListOf<String>()
+    val specialAreas = mutableListOf<String>()
     var athlete = Athlete
     lateinit var path: String
 
-    init {
+
+        init {
         when {
             athlete.getSport() == "Bodybuilding" -> {
                 path = "Sports/Bodybuilding/SpecialAreas"
@@ -34,30 +34,29 @@ class SpecializedAreaAdapter: RecyclerView.Adapter<SportCustomViewHolder>() {
                 path = "Sports/Soccer/SpecialAreas"
             }
         }
-        firestore.collection(path)
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    specialAreasSoccer.add(document.data.toString())
-                }
+        firestore.collection(path).get().addOnSuccessListener { result ->
+            for (document in result) {
+                specialAreas.add(document.data.values.first().toString())
             }
-            .addOnFailureListener { exception ->
-                Log.d(TAG, "Error getting documents: ", exception)
-            }
+            notifyDataSetChanged()
+        }.addOnFailureListener { exception ->
+            Log.d(TAG, "Error getting documents: ", exception)
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SportCustomViewHolder {
-        val layoutinflater = LayoutInflater.from(parent.context)
-        val specialCheckbox = layoutinflater.inflate(R.layout.specialezed_area_row, parent, false)
+        val layoutInflater = LayoutInflater.from(parent.context)
+        val specialCheckbox = layoutInflater.inflate(R.layout.specialezed_area_row, parent, false)
         return SportCustomViewHolder(specialCheckbox)
     }
 
     override fun getItemCount(): Int {
-        return specialAreasSoccer.size
+        return specialAreas.size
     }
 
     override fun onBindViewHolder(holder: SportCustomViewHolder, position: Int) {
-        val specialArea = specialAreasSoccer.get(position)
+        val specialArea = specialAreas.get(position)
         holder.view.checkBox_row.text = specialArea
+        holder.view.checkBox_row.setOnClickListener { listener(position) }
     }
 }
