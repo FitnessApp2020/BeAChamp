@@ -11,7 +11,8 @@ import com.fitnessapp2020.beachamp.model.Athlete
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.specialezed_area_row.view.*
 
-class SpecializedAreaAdapter(private val listener: (Int) -> Unit) : RecyclerView.Adapter<SportCustomViewHolder>() {
+class SpecializedAreaAdapter(private val listener: (Int) -> Unit) :
+    RecyclerView.Adapter<SportCustomViewHolder>() {
 
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     val specialAreas = mutableListOf<String>()
@@ -19,7 +20,7 @@ class SpecializedAreaAdapter(private val listener: (Int) -> Unit) : RecyclerView
     lateinit var path: String
 
 
-        init {
+    init {
         when {
             athlete.getSport() == "Bodybuilding" -> {
                 path = "Sports/Bodybuilding/SpecialAreas"

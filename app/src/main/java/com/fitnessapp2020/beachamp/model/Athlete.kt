@@ -11,10 +11,11 @@ object Athlete : Person() {
 
     fun setSport(sport: Sport) {
         this.sport = sport
+        notifyChange()
     }
 
     fun getSport(): String {
-        return sport.sport
+        return sport.type
     }
 
     fun addFriend(friend: Friend) {
