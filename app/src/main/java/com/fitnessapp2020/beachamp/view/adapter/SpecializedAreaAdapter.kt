@@ -17,30 +17,9 @@ class SpecializedAreaAdapter(private val listener: (Int) -> Unit) :
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     val specialAreas = mutableListOf<String>()
     var athlete = Athlete
-    lateinit var path: String
 
     init {
-        when {
-            athlete.getSport() == "Bodybuilding" -> {
-                path = "Sports/Bodybuilding/SpecialAreas"
-            }
-            athlete.getSport() == "Boxing" -> {
-                path = "Sports/Boxing/SpecialAreas"
-            }
-            athlete.getSport() == "Exerciser" -> {
-                path = "Sports/Exerciser/SpecialAreas"
-            }
-            athlete.getSport() == "Handball" -> {
-                path = "Sports/Handball/SpecialAreas"
-            }
-            athlete.getSport() == "Soccer" -> {
-                path = "Sports/Soccer/SpecialAreas"
-            }
-            athlete.getSport() == "Tennis" -> {
-                path = "Sports/Tennis/SpecialAreas"
-            }
-        }
-        firestore.collection(path).get().addOnSuccessListener { result ->
+        firestore.collection("Sports/" + athlete.getSport() + "/SpecialAreas").get().addOnSuccessListener { result ->
             for (document in result) {
                 specialAreas.add(document.data.values.first().toString())
             }
