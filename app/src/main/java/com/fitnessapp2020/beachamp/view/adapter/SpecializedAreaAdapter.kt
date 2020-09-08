@@ -19,7 +19,6 @@ class SpecializedAreaAdapter(private val listener: (Int) -> Unit) :
     var athlete = Athlete
     lateinit var path: String
 
-
     init {
         when {
             athlete.getSport() == "Bodybuilding" -> {
@@ -28,11 +27,17 @@ class SpecializedAreaAdapter(private val listener: (Int) -> Unit) :
             athlete.getSport() == "Boxing" -> {
                 path = "Sports/Boxing/SpecialAreas"
             }
+            athlete.getSport() == "Exerciser" -> {
+                path = "Sports/Exerciser/SpecialAreas"
+            }
             athlete.getSport() == "Handball" -> {
                 path = "Sports/Handball/SpecialAreas"
             }
             athlete.getSport() == "Soccer" -> {
                 path = "Sports/Soccer/SpecialAreas"
+            }
+            athlete.getSport() == "Tennis" -> {
+                path = "Sports/Tennis/SpecialAreas"
             }
         }
         firestore.collection(path).get().addOnSuccessListener { result ->
