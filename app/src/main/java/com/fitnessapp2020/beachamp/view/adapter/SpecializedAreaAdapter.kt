@@ -3,7 +3,6 @@ package com.fitnessapp2020.beachamp.view.adapter
 import android.content.ContentValues.TAG
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fitnessapp2020.beachamp.R
