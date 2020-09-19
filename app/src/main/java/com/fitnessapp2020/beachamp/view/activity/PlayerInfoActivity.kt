@@ -4,15 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.fitnessapp2020.beachamp.R
-import com.fitnessapp2020.beachamp.model.Athlete
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.player_info.*
 
 class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
@@ -20,6 +17,7 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var auth: FirebaseAuth
     private var TAG: String = "PlayerInfoActivity"
+
     private lateinit var name: String
     private lateinit var email: String
     private lateinit var password: String
@@ -41,30 +39,29 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
         startActivity(intent)
     }
 
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
-    }
-
     fun registerUser() {
         name = name_editText_info.text.toString()
         email = email_editText_info.text.toString()
         password = password_editTextText_info.text.toString()
 
         auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this)
-            { task ->
+            .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success")
                     val user = auth.currentUser
                     updateUI(user)
 
-                    // Add user to firestore
-                    firestore.collection("Athletes").document("id").set(user?.uid.toString())
-                    firestore.collection("Athletes").document("email").set(email)
+                    val userData = hashMapOf(
+                        "name" to name,
+                        "email" to email,
+                        "password" to password
+                    )
+
+                    if (user != null) {
+                        firestore.collection("athletes").document(user.uid).set(userData)
+                    }
+
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "createUserWithEmail:failure", task.exception)
@@ -74,6 +71,8 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
                     ).show()
                     updateUI(null)
                 }
+
+
             }
     }
 
