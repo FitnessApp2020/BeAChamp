@@ -25,16 +25,18 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.player_info)
-
-        // Add continue button
-        choose_sport_main_button3.setOnClickListener(this)
-
         auth = FirebaseAuth.getInstance()
+
+
+        // Add click-listeners
+        continue_button_info.setOnClickListener(this)
+        logIn_textView_info.setOnClickListener(this)
     }
 
-    override fun onClick(p0: View?) {
-        registerUser()
-
+    override fun onClick(view: View?) {
+        if (view == continue_button_info) {
+            registerUser()
+        }
         val intent = Intent(this, ChooseAreaActivity::class.java)
         startActivity(intent)
     }
@@ -71,8 +73,6 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
                     ).show()
                     updateUI(null)
                 }
-
-
             }
     }
 
