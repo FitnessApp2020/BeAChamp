@@ -6,7 +6,10 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.fitnessapp2020.beachamp.R
+import com.fitnessapp2020.beachamp.view.fragment.LogInFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,7 +20,7 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var auth: FirebaseAuth
     private var TAG: String = "PlayerInfoActivity"
-
+    // Athletes attributes
     private lateinit var name: String
     private lateinit var email: String
     private lateinit var password: String
@@ -27,18 +30,24 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.player_info)
         auth = FirebaseAuth.getInstance()
 
-
         // Add click-listeners
         continue_button_info.setOnClickListener(this)
-        logIn_textView_info.setOnClickListener(this)
+        logIn_textView_info.setOnClickListener {
+            // Add fragment
+            val logInFragment = LogInFragment()
+
+            val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            fragmentTransaction.add(R.id.login_frame_info, logInFragment)
+            fragmentTransaction.commit()
+        }
     }
 
     override fun onClick(view: View?) {
         if (view == continue_button_info) {
             registerUser()
+            val intent = Intent(this, ChooseAreaActivity::class.java)
+            startActivity(intent)
         }
-        val intent = Intent(this, ChooseAreaActivity::class.java)
-        startActivity(intent)
     }
 
     fun registerUser() {
