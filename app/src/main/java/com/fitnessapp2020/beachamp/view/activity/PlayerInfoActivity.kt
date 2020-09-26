@@ -20,6 +20,7 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var auth: FirebaseAuth
     private var TAG: String = "PlayerInfoActivity"
+
     // Athletes attributes
     private lateinit var name: String
     private lateinit var email: String
@@ -32,12 +33,14 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
 
         // Add click-listeners
         continue_button_info.setOnClickListener(this)
+        skip_button_info.setOnClickListener(this)
         logIn_textView_info.setOnClickListener {
             // Add fragment
             val logInFragment = LogInFragment()
 
             val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
             fragmentTransaction.add(R.id.login_frame_info, logInFragment)
+            fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
     }
@@ -45,6 +48,9 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(view: View?) {
         if (view == continue_button_info) {
             registerUser()
+            val intent = Intent(this, ChooseAreaActivity::class.java)
+            startActivity(intent)
+        } else if (view == skip_button_info) {
             val intent = Intent(this, ChooseAreaActivity::class.java)
             startActivity(intent)
         }
