@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.fitnessapp2020.beachamp.R
 import com.fitnessapp2020.beachamp.view.activity.ChooseAreaActivity
+import com.fitnessapp2020.beachamp.view.activity.HomeActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_log_in.*
 
@@ -42,7 +43,7 @@ class LogInFragment : Fragment(), View.OnClickListener {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
-                    val intent = Intent(activity, ChooseAreaActivity::class.java)
+                    val intent = Intent(activity, HomeActivity::class.java)
                     startActivity(intent)
                 } else {
                     // If sign in fails, display a message to the user.

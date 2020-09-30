@@ -14,6 +14,7 @@
         <activity android:name=".view.activity.PlayerInfoActivity" />
         <activity android:name=".view.activity.ChooseAreaActivity" />
         <activity android:name=".view.activity.SpecializedAreaActivity" />
+        <activity android:name=".view.activity.HomeActivity" />
 
 
         <activity android:name=".view.activity.MainActivity">

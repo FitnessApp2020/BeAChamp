@@ -1,6 +1,5 @@
 package com.fitnessapp2020.beachamp.view.activity
 
-import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,14 +7,15 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import com.fitnessapp2020.beachamp.R
 import com.fitnessapp2020.beachamp.model.*
 import com.fitnessapp2020.beachamp.observerPattern.Observer
-import com.fitnessapp2020.beachamp.observerPattern.Subject
+import com.fitnessapp2020.beachamp.view.fragment.LogInFragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
-import kotlinx.android.synthetic.main.activity_specialized_areas.*
 import kotlinx.android.synthetic.main.choose_your_sport.*
+import kotlinx.android.synthetic.main.choose_your_sport.logIn_textView_choose
 
 class ChooseSportActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     View.OnClickListener, Observer {
@@ -36,6 +36,15 @@ class ChooseSportActivity : AppCompatActivity(), AdapterView.OnItemSelectedListe
 
         // add continue button
         continue_button_choose.setOnClickListener(this)
+        logIn_textView_choose.setOnClickListener {
+            // Add fragment
+            val logInFragment = LogInFragment()
+
+            val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
+            fragmentTransaction.add(R.id.login_frame_choose, logInFragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
 
         firestore.collection("Sports").get()
             .addOnSuccessListener { result ->

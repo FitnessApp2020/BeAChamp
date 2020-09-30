@@ -34,15 +34,7 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
         // Add click-listeners
         continue_button_info.setOnClickListener(this)
         skip_button_info.setOnClickListener(this)
-        logIn_textView_info.setOnClickListener {
-            // Add fragment
-            val logInFragment = LogInFragment()
 
-            val fragmentTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
-            fragmentTransaction.add(R.id.login_frame_info, logInFragment)
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
-        }
     }
 
     override fun onClick(view: View?) {
