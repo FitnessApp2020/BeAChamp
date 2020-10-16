@@ -31,14 +31,17 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.player_info)
         auth = FirebaseAuth.getInstance()
 
+        var name: String = ""
         // Add click-listeners
         continue_button_info.setOnClickListener(this)
         skip_button_info.setOnClickListener(this)
+
 
     }
 
     override fun onClick(view: View?) {
         if (view == continue_button_info) {
+//            enableButton()
             registerUser()
             val intent = Intent(this, ChooseAreaActivity::class.java)
             startActivity(intent)
@@ -85,4 +88,10 @@ class PlayerInfoActivity : AppCompatActivity(), View.OnClickListener {
 
     fun updateUI(user: FirebaseUser?) {
     }
+
+//    fun enableButton() {
+//        if (name == null || email.contains("@") || password == null) {
+//            continue_button_info.isEnabled
+//        }
+//    }
 }

@@ -45,9 +45,7 @@ class LogInFragment : Fragment(), View.OnClickListener {
                     Log.d(TAG, "signInWithEmail:success")
                     val user = auth.currentUser
                     val intent = Intent(activity, HomeActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(intent)
-                    this.activity?.finish()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithEmail:failure", task.exception)

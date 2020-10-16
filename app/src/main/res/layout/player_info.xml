@@ -5,20 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/continue_button_info"
-        android:layout_width="230dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="25dp"
-        android:background="#F381A1C8"
-        android:text="CONTINUE"
-        android:textColor="#F8F5F5"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_title_main3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/textView_title_main3"
         android:layout_width="304dp"
@@ -120,5 +106,20 @@
         app:layout_constraintBottom_toBottomOf="@+id/continue_button_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/continue_button_info" />
+
+    <Button
+        android:id="@+id/continue_button_info"
+        android:layout_width="230dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="25dp"
+        android:background="#F381A1C8"
+        android:text="CONTINUE"
+        android:textColor="#F8F5F5"
+        android:textSize="14sp"
+        android:enabled="false"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_title_main3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
