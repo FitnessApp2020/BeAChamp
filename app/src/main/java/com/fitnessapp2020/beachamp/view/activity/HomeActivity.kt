@@ -13,7 +13,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_home)
 
         // Add choose sport button
-        train_button_home.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {

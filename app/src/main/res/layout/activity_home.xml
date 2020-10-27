@@ -3,41 +3,80 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#80D4EF">
 
-    <Button
-        android:id="@+id/profile_home_button"
-        android:layout_width="52dp"
-        android:layout_height="53dp"
-        android:background="@drawable/profile"
-        android:backgroundTint="#F381A1C8"
-        app:layout_constraintStart_toStartOf="parent"
+    <TextView
+        android:id="@+id/title_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent2"
+        android:text="Be A Champ"
+        android:textAlignment="center"
+        android:textColor="#000"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/home_title"
+        android:id="@+id/name_home"
+        android:layout_marginRight="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:fontFamily="sans-serif"
-        android:text="Home"
-        android:textColor="#F3155098"
-        android:textSize="56sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/sport_imageView_home"
+        app:layout_constraintTop_toBottomOf="@id/title_home"
+        tools:text="Player name" />
 
-    <Button
-        android:id="@+id/train_button_home"
-        android:layout_width="230dp"
-        android:layout_height="45dp"
-        android:background="#F381A1C8"
-        android:text="Start traning"
-        android:textColor="#F8F5F5"
-        android:textSize="14sp"
-        android:textStyle="bold"
+    <TextView
+        android:id="@+id/team_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:textSize="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/sport_imageView_home"
+        app:layout_constraintTop_toBottomOf="@id/name_home"
+        tools:text="Player team" />
+
+    <ImageView
+        android:id="@+id/sport_imageView_home"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_home"
+        app:srcCompat="@drawable/soccer_icon" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/trophy_recyclerView_main"
+        android:layout_width="0dp"
+        android:layout_height="75dp"
+        android:background="@drawable/trophy_background"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/team_home" />
+
+    <TextView
+        android:id="@+id/textView_motto_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#888888"
+        android:text="Player Chosen Motto"
+        android:textAlignment="center"
+        android:textColor="#000"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/trophy_recyclerView_main" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/mainColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_title" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_motto_home" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
